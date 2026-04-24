@@ -1,58 +1,42 @@
-import request from "request";
-
-export enum difficulty{
-  easy = "easy",
-  medium = "medium",
-  hard = "hard"
+/**
+ * Adds two __numbers__
+ * @param firstNumber - Consists of the first operand of the addition
+ * @param secondNumber - Consists of the second operand of the addition
+ * @returns The addition of the two numbers `firstNumber` and `secondNumber`
+ * ```typescript
+ * add(1, 7) = 8
+ * ```
+ */
+export function add(firstNumber: number, secondNumber: number): number {
+  return firstNumber + secondNumber;
 }
 
 /**
- * 
- * @returns Listado de categorías para la API
+ * Substracts two __numbers__
+ * @param firstNumber - Consists of the first operand of the substraction
+ * @param secondNumber - Consists of the second operand of the substraction
+ * @returns The substraction of the two numbers `firstNumber` and `secondNumber`
+ * ```typescript
+ * sub(1, 7) = -6
+ * ```
+ *
  */
-export const getCategories = () => {
-  const url = `https://opentdb.com/api_category.php`;
-  return new Promise<request.Response>((resolve, reject) => {
-    request(
-      { url: url, json: true },
-      (error: Error, response: request.Response) => {
-        if (error) {
-          reject(error.message);
-        } else if (response.body.trivia_categories.length === 0) {
-          reject("error: no category found");
-        } else {
-          resolve(response);
-        }
-      },
-    );
-  });
-};
+export function sub(firstNumber: number, secondNumber: number): number {
+  return firstNumber - secondNumber;
+}
 
 /**
- * 
- * @param category Id de la categoría
- * @param difficulty Dificultad de la pregunta
- * @param type Tipo de pregunta
- * @returns 
+ *
+ * @param firstNumber - Consists of the first operand of the division
+ * @param secondNumber - Consists of the second operand of the division
+ * @returns The division of the two numbers `firstNumber` and `secondNumber`
+ * ```typescript
+ * div(4, 8) = 0.5
+ * ```
  */
-export const findQuestions = (category?: number, difficulty?: difficulty, type?: "multiple" | "boolean") => {
-  let url = `https://opentdb.com/api.php?amount=50`;
-  if(category) url += `&category=${category}`;
-  if(difficulty) url += `&difficulty=${difficulty}`;
-  if(type) url += `&type=${type}`;
-  return new Promise<request.Response>((resolve, reject) => {
-    request(
-      { url: url, json: true },
-      (error: Error, response: request.Response) => {
-        if (error) {
-          reject(error.message);
-        } else if (response.body.results.length === 0) {
-          reject("error: no questions found");
-        } else {
-          resolve(response);
-          //console.log(response.body.results.length);
-        }
-      },
-    );
-  });
-};
+export function div(firstNumber: number, secondNumber: number): number {
+  if (secondNumber === 0) {
+    throw new Error("Zero division");
+  }
+  return firstNumber / secondNumber;
+}
