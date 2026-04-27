@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1777033204462" clover="3.2.0">
+  <project timestamp="1777033204462" name="All files">
+    <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3" elements="10" coveredelements="10" complexity="0" loc="5" ncloc="5" packages="1" files="1" classes="1"/>
+    <file name="Ejercicios.ts" path="/home/usuario/prct11/src/Ejercicios.ts">
+      <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+      <line num="11" count="2" type="stmt"/>
+      <line num="25" count="3" type="stmt"/>
+      <line num="38" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="39" count="1" type="stmt"/>
+      <line num="41" count="2" type="stmt"/>
+    </file>
+  </project>
+</coverage>
